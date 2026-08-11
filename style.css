@@ -839,7 +839,6 @@ a {
   font-size: 14px;
   transition: color 0.25s ease;
 }
-
 .drawer__list a:hover {
   color: var(--color-accent);
 }
@@ -916,7 +915,6 @@ a {
   font-size: 13px;
   transition: background-color 0.2s ease;
 }
-
 .dropdown__item a:hover {
   background-color: var(--color-bg);
 }
@@ -1289,8 +1287,6 @@ a {
   font-size: 12px;
 }
 
-/* --- スクロール読了プログレスバー --- */
-
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -1306,8 +1302,6 @@ a {
   height: 100%;
   background-color: var(--color-accent);
 }
-
-/* --- スタガーテキスト --- */
 
 .stagger-text {
   font-size: clamp(24px, 4vw, 36px);
@@ -1327,8 +1321,6 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* --- カウントアップ --- */
 
 .lp-counters {
   display: grid;
@@ -1353,8 +1345,6 @@ a {
   font-size: 14px;
 }
 
-/* --- 画像マスクワイプ --- */
-
 .lp-wipe-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1374,8 +1364,6 @@ a {
   height: 260px;
   object-fit: cover;
 }
-
-/* --- パララックス --- */
 
 .parallax-block {
   position: relative;
@@ -1411,8 +1399,6 @@ a {
   max-width: 520px;
 }
 
-/* --- スクロール連動ズーム --- */
-
 .scrollzoom {
   position: relative;
   width: 100%;
@@ -1437,8 +1423,6 @@ a {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
   will-change: transform;
 }
-
-/* --- SVGライン描画 --- */
 
 .line-draw-group {
   display: grid;
@@ -1476,8 +1460,6 @@ a {
   color: var(--color-sub);
   font-size: 13px;
 }
-
-/* --- 横スクロールギャラリー --- */
 
 .hscroll {
   position: relative;
