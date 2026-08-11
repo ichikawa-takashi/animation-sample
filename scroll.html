@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スクロールアニメーション サンプル集</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scroll-progress"><div class="scroll-progress__bar"></div></div>
+
+<div class="lp-note">
+  <p class="lp-note__text">スクロールアニメーションの解説ページです。各見出しや本文は、実際にそこへ適用されているアニメーションの種類と動き方（フェードイン・スライドイン・ズームインなど）を説明する内容になっています。スクロールしながら、テキストの内容と実際の動きを見比べてご確認ください。</p>
+</div>
+
+<main class="lp">
+
+  <section class="lp-hero">
+    <div class="swiper lp-hero__swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&amp;fit=crop&amp;w=1600&amp;q=70" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&amp;fit=crop&amp;w=1600&amp;q=70" alt="">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&amp;fit=crop&amp;w=1600&amp;q=70" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="lp-hero__overlay"></div>
+    <div class="lp-hero__inner reveal reveal--up">
+      <p class="lp-hero__eyebrow">FADE UP</p>
+      <h1 class="lp-hero__title">下からふわっと<br>フェードインします。</h1>
+      <p class="lp-hero__lead">このエリア全体は、本来の位置より28px下にずれた状態から、透明度0の状態でスタートし、0.7秒かけて元の位置へ移動しながら透明度1まで浮かび上がるように出現します。</p>
+      <a href="#" class="btn lp-hero__cta">スクロールして次を見る</a>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">フェードイン</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">このテキストは位置を変えずに、透明度だけが0.7秒かけて0から1へ変化して出現します。0.12秒の遅延がついているため、上の見出しより少し遅れて表示されます。</p>
+
+      <div class="lp-features">
+        <div class="lp-feature reveal reveal--up">
+          <span class="lp-feature__icon">01</span>
+          <h3 class="lp-feature__title">スライドアップ（遅延なし）</h3>
+          <p class="lp-feature__text">下に28pxずれた位置から本来の位置へ、0.7秒かけて移動しながらフェードインします。画面内に入ると同時にアニメーションが始まります。</p>
+        </div>
+        <div class="lp-feature reveal reveal--up reveal--delay-1">
+          <span class="lp-feature__icon">02</span>
+          <h3 class="lp-feature__title">スライドアップ（0.12秒遅延）</h3>
+          <p class="lp-feature__text">動きは1つ目と同じスライドアップですが、開始タイミングを0.12秒遅らせています。隣の要素と時間差をつけることで、順番に浮かび上がって見えます。</p>
+        </div>
+        <div class="lp-feature reveal reveal--up reveal--delay-2">
+          <span class="lp-feature__icon">03</span>
+          <h3 class="lp-feature__title">スライドアップ（0.24秒遅延）</h3>
+          <p class="lp-feature__text">さらに0.12秒遅れて、合計0.24秒後にアニメーションが始まります。3つの要素が連続的に、時間差で出現するのがポイントです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--left">スライドイン（左から）</h2>
+      <p class="lp-section__lead reveal reveal--left reveal--delay-1">この見出しと本文は、左に36pxずれた位置から本来の位置へ、0.7秒かけて右方向にスライドしながらフェードインします。下の画像は、それぞれ異なる遅延をつけたフェードインの例です。</p>
+
+      <div class="lp-gallery">
+        <figure class="lp-gallery__item reveal reveal--fade">
+          <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&amp;fit=crop&amp;w=600&amp;q=60" alt="ワークスペースのイメージ">
+        </figure>
+        <figure class="lp-gallery__item reveal reveal--fade reveal--delay-1">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=600&amp;q=60" alt="リビングのイメージ">
+        </figure>
+        <figure class="lp-gallery__item reveal reveal--fade reveal--delay-2">
+          <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&amp;fit=crop&amp;w=600&amp;q=60" alt="プロダクトのイメージ">
+        </figure>
+        <figure class="lp-gallery__item reveal reveal--fade">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=600&amp;q=60" alt="小物のイメージ">
+        </figure>
+        <figure class="lp-gallery__item reveal reveal--fade reveal--delay-1">
+          <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&amp;fit=crop&amp;w=600&amp;q=60" alt="インテリアのイメージ">
+        </figure>
+        <figure class="lp-gallery__item reveal reveal--fade reveal--delay-2">
+          <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&amp;fit=crop&amp;w=600&amp;q=60" alt="空間のイメージ">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <div class="lp-about">
+        <div class="lp-about__media reveal reveal--left">
+          <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="左からスライドインする画像の例">
+        </div>
+        <div class="lp-about__body">
+          <h2 class="lp-section__title lp-section__title--left reveal reveal--right">スライドイン（右から）</h2>
+          <p class="lp-about__text reveal reveal--right reveal--delay-1">この文章は右に36pxずれた位置から、0.12秒の遅延のあと本来の位置へ0.7秒かけてスライドしながら出現します。左の画像とは逆方向から動くことで、対比が生まれています。</p>
+          <a href="#" class="btn btn--outline lp-about__link reveal reveal--right reveal--delay-2">0.24秒遅れて表示</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--scale">ズームイン</h2>
+      <p class="lp-section__lead reveal reveal--scale reveal--delay-1">この見出しは0.9倍に縮小された状態から、等倍（1.0倍）へ0.7秒かけて拡大しながらフェードインします。</p>
+
+      <div class="lp-voices">
+        <blockquote class="lp-voice reveal reveal--up">
+          <p class="lp-voice__text">このカードは下に28pxずれた位置から本来の位置へ0.7秒かけてスライドしながらフェードインします。遅延なしで、画面内に入るとすぐに動き出します。</p>
+          <p class="lp-voice__name">— reveal--up</p>
+        </blockquote>
+        <blockquote class="lp-voice reveal reveal--up reveal--delay-1">
+          <p class="lp-voice__text">このカードは下から28pxスライドしながらフェードインします。0.12秒の遅延がついているため、1つ目のカードより少し遅れて出現します。</p>
+          <p class="lp-voice__name">— reveal--up / delay 0.12s</p>
+        </blockquote>
+        <blockquote class="lp-voice reveal reveal--up reveal--delay-2">
+          <p class="lp-voice__text">同じスライドアップの動きに、0.24秒の遅延がついています。3枚のカードが左から時間差で順番に浮かび上がって見えます。</p>
+          <p class="lp-voice__name">— reveal--up / delay 0.24s</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--down">フェードダウン</h2>
+      <p class="lp-section__lead reveal reveal--down reveal--delay-1">この見出しは、本来の位置より28px上にずれた位置から、透明度0の状態でスタートし、下方向へ0.7秒かけて移動しながらフェードインします。スライドアップとは逆方向の動きです。</p>
+
+      <div class="lp-features">
+        <div class="lp-feature reveal reveal--down">
+          <span class="lp-feature__icon">01</span>
+          <h3 class="lp-feature__title">フェードダウン（遅延なし）</h3>
+          <p class="lp-feature__text">上に28pxずれた位置から本来の位置へ下方向にスライドしながらフェードインします。</p>
+        </div>
+        <div class="lp-feature reveal reveal--down reveal--delay-1">
+          <span class="lp-feature__icon">02</span>
+          <h3 class="lp-feature__title">フェードダウン（0.12秒遅延）</h3>
+          <p class="lp-feature__text">同じ動きを0.12秒遅らせて開始し、1つ目のカードのあとに続いて出現します。</p>
+        </div>
+        <div class="lp-feature reveal reveal--down reveal--delay-2">
+          <span class="lp-feature__icon">03</span>
+          <h3 class="lp-feature__title">フェードダウン（0.24秒遅延）</h3>
+          <p class="lp-feature__text">さらに0.12秒遅れ、合計0.24秒後に開始します。3つが時間差で上から降りてくるように出現します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--zoom-out">ズームアウト</h2>
+      <p class="lp-section__lead reveal reveal--zoom-out reveal--delay-1">この見出しは1.2倍に拡大された状態からスタートし、0.7秒かけて等倍（1.0倍）へ縮小しながらフェードインします。ズームインとは逆に、大きい状態から本来のサイズへ収まる動きです。</p>
+
+      <div class="lp-features">
+        <div class="lp-feature reveal reveal--zoom-out">
+          <span class="lp-feature__icon">01</span>
+          <h3 class="lp-feature__title">ズームアウト（遅延なし）</h3>
+          <p class="lp-feature__text">1.2倍の拡大状態から等倍へ縮小しながらフェードインします。</p>
+        </div>
+        <div class="lp-feature reveal reveal--zoom-out reveal--delay-1">
+          <span class="lp-feature__icon">02</span>
+          <h3 class="lp-feature__title">ズームアウト（0.12秒遅延）</h3>
+          <p class="lp-feature__text">同じ縮小の動きを0.12秒遅らせて開始します。</p>
+        </div>
+        <div class="lp-feature reveal reveal--zoom-out reveal--delay-2">
+          <span class="lp-feature__icon">03</span>
+          <h3 class="lp-feature__title">ズームアウト（0.24秒遅延）</h3>
+          <p class="lp-feature__text">さらに0.12秒遅れ、合計0.24秒後に開始します。3つの要素が縮みながら順番に収まっていきます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--flip">フリップ</h2>
+      <p class="lp-section__lead reveal reveal--flip reveal--delay-1">この見出しは、Y軸を中心に90度回転して裏を向いた状態からスタートし、0.7秒かけて0度（正面）まで回転しながらフェードインします。カードが裏返るような立体的な動きです。</p>
+
+      <div class="lp-features">
+        <div class="lp-feature reveal reveal--flip">
+          <span class="lp-feature__icon">01</span>
+          <h3 class="lp-feature__title">フリップ（遅延なし）</h3>
+          <p class="lp-feature__text">Y軸90度回転した状態から正面へ回転しながらフェードインします。</p>
+        </div>
+        <div class="lp-feature reveal reveal--flip reveal--delay-1">
+          <span class="lp-feature__icon">02</span>
+          <h3 class="lp-feature__title">フリップ（0.12秒遅延）</h3>
+          <p class="lp-feature__text">同じ回転の動きを0.12秒遅らせて開始します。</p>
+        </div>
+        <div class="lp-feature reveal reveal--flip reveal--delay-2">
+          <span class="lp-feature__icon">03</span>
+          <h3 class="lp-feature__title">フリップ（0.24秒遅延）</h3>
+          <p class="lp-feature__text">さらに0.12秒遅れ、合計0.24秒後に開始します。3枚のカードが順番に裏返って出現します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--blur">ブラー解除</h2>
+      <p class="lp-section__lead reveal reveal--blur reveal--delay-1">この見出しは、16pxぼかされた状態と透明度0の状態からスタートし、0.7秒かけてぼかしが取れながら透明度1まで変化します。ピントが合っていくような演出です。</p>
+
+      <div class="lp-features">
+        <div class="lp-feature reveal reveal--blur">
+          <span class="lp-feature__icon">01</span>
+          <h3 class="lp-feature__title">ブラー解除（遅延なし）</h3>
+          <p class="lp-feature__text">ぼかしが取れながらフェードインし、ピントが合うように出現します。</p>
+        </div>
+        <div class="lp-feature reveal reveal--blur reveal--delay-1">
+          <span class="lp-feature__icon">02</span>
+          <h3 class="lp-feature__title">ブラー解除（0.12秒遅延）</h3>
+          <p class="lp-feature__text">同じ動きを0.12秒遅らせて開始します。</p>
+        </div>
+        <div class="lp-feature reveal reveal--blur reveal--delay-2">
+          <span class="lp-feature__icon">03</span>
+          <h3 class="lp-feature__title">ブラー解除（0.24秒遅延）</h3>
+          <p class="lp-feature__text">さらに0.12秒遅れ、合計0.24秒後に開始します。3つが順番にピントが合っていきます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--bounce">バウンス</h2>
+      <p class="lp-section__lead reveal reveal--bounce reveal--delay-1">この見出しは下に40pxずれた位置からスタートし、一度本来の位置を通り越して少し飛び出してから、跳ね返るように収まります。弾むような、遊び心のある動きです。</p>
+
+      <div class="lp-features">
+        <div class="lp-feature reveal reveal--bounce">
+          <span class="lp-feature__icon">01</span>
+          <h3 class="lp-feature__title">バウンス（遅延なし）</h3>
+          <p class="lp-feature__text">下から弾みながら本来の位置に収まるように出現します。</p>
+        </div>
+        <div class="lp-feature reveal reveal--bounce reveal--delay-1">
+          <span class="lp-feature__icon">02</span>
+          <h3 class="lp-feature__title">バウンス（0.12秒遅延）</h3>
+          <p class="lp-feature__text">同じ動きを0.12秒遅らせて開始します。</p>
+        </div>
+        <div class="lp-feature reveal reveal--bounce reveal--delay-2">
+          <span class="lp-feature__icon">03</span>
+          <h3 class="lp-feature__title">バウンス（0.24秒遅延）</h3>
+          <p class="lp-feature__text">さらに0.12秒遅れ、合計0.24秒後に開始します。3つが弾みながら順番に出現します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">スタガーテキスト</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">下の大きな見出しは、1文字ずつ40ミリ秒の時間差をつけてフェードインしながら浮かび上がります。文字が左から右へ順番に出現していくのが分かります。</p>
+      <p class="stagger-text" data-stagger>文字が一つずつ現れます</p>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">カウントアップ</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">下の数字は、画面内に入ったタイミングで0からスタートし、約1.5秒かけて目標の数値までカウントアップします。実績やお客様の声を数字で見せたい場面でよく使われます。</p>
+
+      <div class="lp-counters">
+        <div class="lp-counter">
+          <p class="lp-counter__number"><span data-counter="98">0</span>%</p>
+          <p class="lp-counter__label">満足度</p>
+        </div>
+        <div class="lp-counter">
+          <p class="lp-counter__number"><span data-counter="250">0</span>+</p>
+          <p class="lp-counter__label">導入実績</p>
+        </div>
+        <div class="lp-counter">
+          <p class="lp-counter__number"><span data-counter="100">0</span>%</p>
+          <p class="lp-counter__label">この一式の実装費用</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">読了プログレスバー</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">このページの一番上に固定表示されている細いバーにご注目ください。ページ全体をどれくらい読み進めたかに応じて、左から右へバーの幅が伸びていきます。スクロール位置と連動する、ページ全体で1つだけの装飾です。</p>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">画像マスクワイプ</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">下の画像は、下側から覆われた状態からスタートし、0.9秒かけてカーテンを開けるように上から下へマスクが外れていきます。opacityではなくclip-pathというCSSプロパティで、画像そのものの見える範囲を変化させています。</p>
+
+      <div class="lp-wipe-gallery">
+        <figure class="lp-wipe-gallery__item reveal reveal--wipe">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="ワイプで現れる画像の例1">
+        </figure>
+        <figure class="lp-wipe-gallery__item reveal reveal--wipe reveal--delay-1">
+          <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&amp;fit=crop&amp;w=700&amp;q=70" alt="ワイプで現れる画像の例2">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">パララックス</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">下の画像は、実寸より大きく表示した上で、スクロール量の一部（0.3倍）だけ縦に動かしています。背景と前景の動く速さに差をつけることで、奥行きのある立体的な見え方になります。</p>
+
+      <div class="parallax-block">
+        <img class="parallax-block__img" data-parallax="0.3" src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&amp;fit=crop&amp;w=1400&amp;q=70" alt="パララックスで動く背景画像">
+        <div class="parallax-block__caption">
+          <p>背景画像だけがスクロールに合わせてゆっくり動くことで、奥行きを演出しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">スクロール連動ズーム</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">下の画像は、画面に固定（sticky）された状態で、スクロールする量に応じて0.6倍から1.5倍まで連続的に拡大していきます。一度表示したら終わりのアニメーションと違い、スクロール位置とリアルタイムに連動しているのが特徴です。</p>
+    </div>
+    <div class="scrollzoom" data-scrollzoom>
+      <div class="scrollzoom__sticky">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&amp;fit=crop&amp;w=1200&amp;q=70" alt="スクロールに合わせて拡大する画像">
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section lp-section--tint">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">SVGライン描画</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">下のアイコンは、SVGの線（パス）を実際の長さぶんだけ非表示にしておき、画面内に入ると1.6秒かけて線を伸ばすように描画します。手描きのような、印象に残る演出です。</p>
+
+      <div class="line-draw-group">
+        <div class="line-draw reveal reveal--fade">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20,65 L50,95 L100,30" />
+          </svg>
+          <p>チェックマークが左から右へ描かれます。</p>
+        </div>
+        <div class="line-draw reveal reveal--fade reveal--delay-1">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10,85 L45,45 L75,65 L110,20 L150,50" />
+          </svg>
+          <p>グラフの折れ線が左から右へ伸びていきます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-section">
+    <div class="lp-container">
+      <h2 class="lp-section__title reveal reveal--fade">横スクロールギャラリー</h2>
+      <p class="lp-section__lead reveal reveal--fade reveal--delay-1">このセクションは縦にスクロールしている間、画像の並びが横方向に流れていきます。セクションを画面に固定（sticky）したまま、縦スクロール量を横方向の移動量に変換しています。</p>
+    </div>
+    <div class="hscroll" data-hscroll>
+      <div class="hscroll__sticky">
+        <div class="hscroll__track">
+          <div class="hscroll__item">
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&amp;fit=crop&amp;w=900&amp;q=70" alt="横スクロールギャラリーの画像1">
+          </div>
+          <div class="hscroll__item">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&amp;fit=crop&amp;w=900&amp;q=70" alt="横スクロールギャラリーの画像2">
+          </div>
+          <div class="hscroll__item">
+            <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&amp;fit=crop&amp;w=900&amp;q=70" alt="横スクロールギャラリーの画像3">
+          </div>
+          <div class="hscroll__item">
+            <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&amp;fit=crop&amp;w=900&amp;q=70" alt="横スクロールギャラリーの画像4">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta">
+    <h2 class="lp-cta__title reveal reveal--fade">アニメーションの組み合わせ</h2>
+    <p class="lp-cta__text reveal reveal--fade reveal--delay-1">このセクションでは、フェードインとスライドアップを組み合わせています。見出しと本文は透明度のみで、0.12秒の遅延をつけてフェードインします。</p>
+    <a href="#" class="btn lp-cta__button reveal reveal--up reveal--delay-2">0.24秒遅れてスライドアップ</a>
+  </section>
+
+  <footer class="lp-footer">
+    <p class="lp-footer__text">&copy; 2026 Scroll Animation Sample</p>
+  </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

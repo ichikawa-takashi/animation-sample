@@ -1,0 +1,1383 @@
+// ==========================================================================
+// Hover Animation Samples
+// - Class names: BEM
+// - Nesting: only allowed for :hover (all other rules are flat)
+// - Spacing: margin / padding は top・left のみ使用
+// ==========================================================================
+
+:root {
+  --color-ink: #1a1a1a;
+  --color-sub: #6b6b6b;
+  --color-bg: #f4f4f5;
+  --color-card-bg: #ffffff;
+  --color-border: #dcdcdc;
+  --color-accent: #3d5afe;
+  --color-overlay: rgba(26, 26, 26, 0.55);
+  --radius-card: 8px;
+  --radius-btn: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// --------------------------------------------------------------------------
+// Layout
+// --------------------------------------------------------------------------
+
+.page-header {
+  padding-top: 48px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+}
+
+.page-header__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.page-header__lead {
+  margin-top: 12px;
+  margin-left: 0;
+  color: var(--color-sub);
+  font-size: 14px;
+}
+
+.page-main {
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 64px;
+}
+
+.sample-section {
+  margin-top: 40px;
+}
+
+.sample-section__title {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.sample-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 0;
+  margin-top: 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.sample-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+
+.sample-card__label {
+  margin: 0;
+  padding-bottom: 20px;
+  color: var(--color-sub);
+  font-size: 12px;
+}
+
+.sample-card__stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+}
+
+// ==========================================================================
+// Button
+// ==========================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 28px;
+  padding-right: 28px;
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-btn);
+  background-color: var(--color-ink);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, opacity 0.25s ease,
+    transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+// ボタン：透過
+.btn--fade {
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+// ボタン：色反転
+.btn--invert {
+  &:hover {
+    background-color: #fff;
+    color: var(--color-ink);
+  }
+}
+
+// ボタン：矢印移動
+.btn--arrow {
+  gap: 10px;
+}
+
+.btn__text {
+  transition: color 0.25s ease;
+}
+
+.btn__arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.btn--arrow {
+  &:hover .btn__arrow {
+    transform: translateX(5px);
+  }
+}
+
+// ボタン：背景スライドイン
+.btn--slide {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  color: var(--color-ink);
+}
+
+.btn--slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.btn--slide .btn__text {
+  position: relative;
+  z-index: 1;
+}
+
+.btn--slide {
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &:hover .btn__text {
+    color: #fff;
+  }
+}
+
+// ボタン：浮き上がり（シャドウ）
+.btn--lift {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  }
+}
+
+// ボタン：枠線アウトライン
+.btn--outline {
+  background-color: transparent;
+  color: var(--color-ink);
+
+  &:hover {
+    background-color: var(--color-ink);
+    color: #fff;
+  }
+}
+
+// ボタン：拡大
+.btn--scale {
+  &:hover {
+    transform: scale(1.06);
+  }
+}
+
+// ボタン：角丸が変化（ピル型）
+.btn--radius {
+  border-radius: var(--radius-btn);
+  transition: border-radius 0.25s ease, background-color 0.25s ease;
+
+  &:hover {
+    border-radius: 999px;
+  }
+}
+
+// ボタン：アイコン回転
+.btn--icon-rotate {
+  gap: 8px;
+}
+
+.btn__icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.btn--icon-rotate {
+  &:hover .btn__icon {
+    transform: rotate(45deg);
+  }
+}
+
+// ボタン：光が走る（シマー）
+.btn--shimmer {
+  background-image: linear-gradient(120deg, var(--color-ink) 0%, #5a5a5a 50%, var(--color-ink) 100%);
+  background-size: 250% 100%;
+  background-position: 0% 0%;
+  transition: background-position 0.6s ease;
+
+  &:hover {
+    background-position: 100% 0%;
+  }
+}
+
+// ボタン：枠だけ色づく
+.btn--border-color {
+  border-color: var(--color-ink);
+
+  &:hover {
+    border-color: var(--color-accent);
+  }
+}
+
+// ボタン：テキストに下線が出現
+.btn--underline .btn__text {
+  position: relative;
+}
+
+.btn--underline .btn__text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.btn--underline {
+  &:hover .btn__text::after {
+    transform: scaleX(1);
+  }
+}
+
+// ==========================================================================
+// Link
+// ==========================================================================
+
+.link {
+  position: relative;
+  display: inline-block;
+  font-size: 15px;
+  transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease,
+    letter-spacing 0.25s ease;
+}
+
+// リンク：線が出現（左から右へ出てきて、そのまま）
+.link--underline-in::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.link--underline-in {
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+// リンク：線が出現してそのまま右へ抜ける
+.link--underline-through::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@keyframes link-underline-through {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  51% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.link--underline-through {
+  &:hover::after {
+    animation: link-underline-through 0.7s ease;
+  }
+}
+
+// リンク：線が下からフワッと出現
+.link--underline-fade::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.link--underline-fade {
+  &:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// リンク：透過
+.link--fade {
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+// リンク：拡大
+.link--scale {
+  &:hover {
+    transform: scale(1.12);
+  }
+}
+
+// リンク：文字間隔が広がる
+.link--tracking {
+  letter-spacing: 0;
+
+  &:hover {
+    letter-spacing: 0.08em;
+  }
+}
+
+// リンク：カラーチェンジ
+.link--color {
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+// リンク：上に浮く
+.link--float {
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+// リンク：太字になる
+.link--bold {
+  font-weight: 400;
+
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+// リンク：イタリックになる
+.link--italic {
+  font-style: normal;
+
+  &:hover {
+    font-style: italic;
+  }
+}
+
+// リンク：背景ハイライト
+.link--highlight {
+  background-color: transparent;
+  transition: background-color 0.25s ease;
+
+  &:hover {
+    background-color: rgba(61, 90, 254, 0.15);
+  }
+}
+
+// リンク：テキストシャドウ
+.link--shadow {
+  &:hover {
+    text-shadow: 0 6px 14px rgba(61, 90, 254, 0.5);
+  }
+}
+
+// リンク：左に縦線が出現
+.link--bar {
+  padding-left: 14px;
+}
+
+.link--bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 3px;
+  height: 70%;
+  background-color: currentColor;
+  opacity: 0;
+  transform: translate(-4px, -50%);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.link--bar {
+  &:hover::before {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+// リンク：矢印がスライド
+.link--arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link__arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.link--arrow {
+  &:hover .link__arrow {
+    transform: translateX(5px);
+  }
+}
+
+// リンク：わずかに傾く
+.link--tilt {
+  &:hover {
+    transform: rotate(-3deg);
+  }
+}
+
+// リンク：アウトラインが浮遊
+.link--outline {
+  outline: 1px solid transparent;
+  outline-offset: 0;
+  transition: outline-color 0.25s ease, outline-offset 0.25s ease;
+
+  &:hover {
+    outline-color: var(--color-accent);
+    outline-offset: 6px;
+  }
+}
+
+// ==========================================================================
+// UI Components (Tab / Slideshow / Accordion / Modal / Drawer / Dropdown)
+// - 状態管理はJS付与のクラス（is-active / is-open）で行うため、
+//   :hover以外のネストも本セクションでは使用しない
+// ==========================================================================
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin: 0;
+  margin-top: 24px;
+  padding: 0;
+}
+
+.demo-block {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 24px;
+}
+
+.demo-block__label {
+  margin: 0;
+  padding-bottom: 20px;
+  color: var(--color-sub);
+  font-size: 12px;
+}
+
+// --------------------------------------------------------------------------
+// Tab
+// --------------------------------------------------------------------------
+
+.tabs__nav {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabs__nav-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: none;
+  background: none;
+  color: var(--color-sub);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.tabs__nav-item.is-active {
+  color: var(--color-ink);
+}
+
+.tabs__indicator {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: transform 0.25s ease, width 0.25s ease;
+}
+
+.tabs__panels {
+  padding-top: 20px;
+}
+
+.tabs__panel {
+  display: none;
+  color: var(--color-sub);
+  font-size: 14px;
+}
+
+.tabs__panel.is-active {
+  display: block;
+}
+
+// タブ：背景が切り替わる（ピル型）
+.tabs--pill .tabs__nav {
+  gap: 8px;
+  border-bottom: none;
+}
+
+.tabs--pill .tabs__nav-item {
+  border-radius: 999px;
+  background-color: var(--color-bg);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.tabs--pill .tabs__nav-item.is-active {
+  background-color: var(--color-ink);
+  color: #fff;
+}
+
+// --------------------------------------------------------------------------
+// Slideshow
+// --------------------------------------------------------------------------
+
+.slideshow__viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+.slideshow__track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+// スライドショー：フェード切り替え
+.slideshow--fade .slideshow__track {
+  display: block;
+  transition: none;
+}
+
+.slideshow__slide {
+  flex: 0 0 100%;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-ink);
+  color: #fff;
+  font-size: 15px;
+}
+
+.slideshow__slide:nth-of-type(2) {
+  background-color: #33415c;
+}
+
+.slideshow__slide:nth-of-type(3) {
+  background-color: #545e75;
+}
+
+.slideshow--fade .slideshow__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.slideshow--fade .slideshow__slide.is-active {
+  position: relative;
+  opacity: 1;
+}
+
+.slideshow__arrow {
+  position: absolute;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-ink);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color 0.25s ease;
+
+  &:hover {
+    background-color: #fff;
+  }
+}
+
+.slideshow__arrow--prev {
+  left: 12px;
+}
+
+.slideshow__arrow--next {
+  right: 12px;
+}
+
+.slideshow__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.slideshow__dot {
+  width: 8px;
+  height: 8px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--color-border);
+  cursor: pointer;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.slideshow__dot.is-active {
+  background-color: var(--color-accent);
+  transform: scale(1.2);
+}
+
+// --------------------------------------------------------------------------
+// Accordion
+// --------------------------------------------------------------------------
+
+.accordion__item {
+  border-top: 1px solid var(--color-border);
+}
+
+.accordion__item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  border: none;
+  background: none;
+  color: var(--color-ink);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.accordion__title {
+  padding-right: 16px;
+}
+
+.accordion__panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion__panel-inner {
+  padding-bottom: 16px;
+  color: var(--color-sub);
+  font-size: 13px;
+}
+
+// アコーディオン：矢印回転（＜を境界線の擬似要素で作成し、開閉で90度回転）
+.accordion--chevron .accordion__icon {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  transition: transform 0.25s ease;
+}
+
+.accordion--chevron .accordion__icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-right: 2px solid var(--color-ink);
+  border-bottom: 2px solid var(--color-ink);
+  transform: rotate(45deg);
+}
+
+.accordion--chevron .accordion__item.is-open .accordion__icon {
+  transform: rotate(90deg);
+}
+
+// アコーディオン：プラス/マイナスアイコン
+.accordion--icon .accordion__icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.accordion--icon .accordion__icon::before,
+.accordion--icon .accordion__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-ink);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.accordion--icon .accordion__icon::before {
+  transform: translateY(-50%);
+}
+
+.accordion--icon .accordion__icon::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.accordion--icon .accordion__item.is-open .accordion__icon::after {
+  transform: translateY(-50%) rotate(0deg);
+  opacity: 0;
+}
+
+// --------------------------------------------------------------------------
+// Modal / Drawer
+// --------------------------------------------------------------------------
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 100;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+// モーダル：フェード＋スケール
+.modal--scale {
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.modal-overlay.is-open .modal--scale {
+  transform: scale(1);
+  opacity: 1;
+}
+
+// モーダル：下からスライドイン
+.modal--slide-up {
+  transform: translateY(40px);
+  opacity: 0;
+}
+
+.modal-overlay.is-open .modal--slide-up {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: none;
+  background: none;
+  color: var(--color-sub);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal__title {
+  margin: 0;
+  padding-bottom: 12px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal__body {
+  margin: 0;
+  color: var(--color-sub);
+  font-size: 14px;
+}
+
+// ドロワー：右からスライドイン
+.drawer {
+  position: relative;
+  width: 260px;
+  max-width: 80%;
+  height: 100%;
+  margin-left: auto;
+  background-color: var(--color-card-bg);
+  padding-top: 56px;
+  padding-left: 24px;
+  transition: transform 0.3s ease;
+}
+
+.drawer--right {
+  transform: translateX(100%);
+}
+
+.modal-overlay.is-open .drawer--right {
+  transform: translateX(0);
+}
+
+.drawer__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: none;
+  background: none;
+  color: var(--color-sub);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.drawer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drawer__list li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.drawer__list a {
+  display: block;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  color: var(--color-ink);
+  font-size: 14px;
+  transition: color 0.25s ease;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
+// --------------------------------------------------------------------------
+// Dropdown
+// --------------------------------------------------------------------------
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-btn);
+  background-color: var(--color-card-bg);
+  color: var(--color-ink);
+  font-size: 14px;
+  cursor: pointer;
+  transition: border-color 0.25s ease;
+}
+
+.dropdown.is-open .dropdown__toggle {
+  border-color: var(--color-accent);
+}
+
+.dropdown__caret {
+  display: inline-block;
+  font-size: 10px;
+  transition: transform 0.25s ease;
+}
+
+.dropdown.is-open .dropdown__caret {
+  transform: rotate(180deg);
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 180px;
+  margin: 0;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.dropdown.is-open .dropdown__menu {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.dropdown__item a {
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: var(--color-ink);
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-bg);
+  }
+}
+
+// ==========================================================================
+// Scroll Reveal (フェードイン・スライドインなど)
+// - JS（IntersectionObserver）がis-visibleを付与して発火
+// - 開始位置は各モディファイアで指定、is-visible時にtransform: noneへ
+// ==========================================================================
+
+.reveal {
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+// スクロール：下からスライドイン
+.reveal--up {
+  transform: translateY(28px);
+}
+
+// スクロール：左からスライドイン
+.reveal--left {
+  transform: translateX(-36px);
+}
+
+// スクロール：右からスライドイン
+.reveal--right {
+  transform: translateX(36px);
+}
+
+// スクロール：拡大しながらフェードイン
+.reveal--scale {
+  transform: scale(0.9);
+}
+
+.reveal--delay-1 {
+  --reveal-delay: 0.12s;
+}
+
+.reveal--delay-2 {
+  --reveal-delay: 0.24s;
+}
+
+// ==========================================================================
+// Landing Page Mock (スクロールアニメーションの実演用)
+// ==========================================================================
+
+.lp-note {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 32px;
+  padding-right: 32px;
+  background-color: var(--color-ink);
+}
+
+.lp-note__text {
+  margin: 0;
+  color: #fff;
+  font-size: 12px;
+}
+
+.lp-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.lp-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.lp-hero__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.lp-hero__inner {
+  position: relative;
+  max-width: 640px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 48px;
+  padding-right: 48px;
+  color: #fff;
+  z-index: 1;
+}
+
+.lp-hero__eyebrow {
+  margin: 0;
+  padding-bottom: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.lp-hero__title {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.lp-hero__lead {
+  margin-top: 20px;
+  margin-left: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+}
+
+.lp-hero__cta {
+  margin-top: 32px;
+}
+
+.lp-section {
+  display: flex;
+  justify-content: center;
+  padding-top: 96px;
+  padding-bottom: 96px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.lp-section--tint {
+  background-color: var(--color-bg);
+}
+
+.lp-container {
+  width: 100%;
+  max-width: 960px;
+}
+
+.lp-section__title {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(22px, 3.5vw, 26px);
+  font-weight: 700;
+  text-align: center;
+}
+
+.lp-section__title--left {
+  text-align: left;
+}
+
+.lp-section__lead {
+  margin-top: 12px;
+  margin-left: 0;
+  color: var(--color-sub);
+  font-size: 14px;
+  text-align: center;
+}
+
+.lp-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin: 0;
+  margin-top: 48px;
+}
+
+.lp-feature {
+  padding: 32px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  text-align: center;
+}
+
+.lp-feature__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lp-feature__title {
+  margin: 0;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.lp-feature__text {
+  margin-top: 12px;
+  margin-left: 0;
+  color: var(--color-sub);
+  font-size: 13px;
+}
+
+.lp-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 0;
+  margin-top: 48px;
+  padding: 0;
+}
+
+.lp-gallery__item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+.lp-gallery__item img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.lp-about {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
+  align-items: center;
+}
+
+.lp-about__media img {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-card);
+}
+
+.lp-about__text {
+  margin-top: 16px;
+  margin-left: 0;
+  color: var(--color-sub);
+  font-size: 14px;
+}
+
+.lp-about__link {
+  display: inline-flex;
+  margin-top: 24px;
+}
+
+.lp-voices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin: 0;
+  margin-top: 48px;
+  padding: 0;
+}
+
+.lp-voice {
+  margin: 0;
+  padding: 28px;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+}
+
+.lp-voice__text {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.lp-voice__name {
+  margin-top: 16px;
+  margin-left: 0;
+  color: var(--color-sub);
+  font-size: 12px;
+}
+
+.lp-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: var(--color-ink);
+  color: #fff;
+  text-align: center;
+}
+
+.lp-cta__title {
+  margin: 0;
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 700;
+}
+
+.lp-cta__text {
+  margin-top: 12px;
+  margin-left: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.lp-cta__button {
+  margin-top: 28px;
+}
+
+.lp-footer {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  text-align: center;
+}
+
+.lp-footer__text {
+  margin: 0;
+  color: var(--color-sub);
+  font-size: 12px;
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UI アニメーション サンプル集</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="page-header">
+  <h1 class="page-header__title">UI Animation Samples</h1>
+  <p class="page-header__lead">タブ切り替え・スライドショー・アコーディオン・モーダルなど、コンテンツをみやすくするUIアニメーションのサンプル集です。各要素を操作して動きをご確認ください。</p>
+</header>
+
+<main class="page-main">
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Tab ｜ タブ切り替え</h2>
+
+    <div class="demo-grid">
+
+      <div class="demo-block">
+        <p class="demo-block__label">下線がスライド</p>
+        <div class="tabs tabs--underline" data-tabs>
+          <div class="tabs__nav" role="tablist">
+            <button type="button" class="tabs__nav-item is-active" data-tab-target="u1" role="tab" aria-selected="true">概要</button>
+            <button type="button" class="tabs__nav-item" data-tab-target="u2" role="tab" aria-selected="false">特徴</button>
+            <button type="button" class="tabs__nav-item" data-tab-target="u3" role="tab" aria-selected="false">料金</button>
+            <span class="tabs__indicator" aria-hidden="true"></span>
+          </div>
+          <div class="tabs__panels">
+            <div class="tabs__panel is-active" data-tab-panel="u1">サービスの概要を説明するテキストが入ります。</div>
+            <div class="tabs__panel" data-tab-panel="u2">サービスの特徴を説明するテキストが入ります。</div>
+            <div class="tabs__panel" data-tab-panel="u3">料金プランを説明するテキストが入ります。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-block">
+        <p class="demo-block__label">背景が切り替わる（ピル型）</p>
+        <div class="tabs tabs--pill" data-tabs>
+          <div class="tabs__nav" role="tablist">
+            <button type="button" class="tabs__nav-item is-active" data-tab-target="p1" role="tab" aria-selected="true">All</button>
+            <button type="button" class="tabs__nav-item" data-tab-target="p2" role="tab" aria-selected="false">Photo</button>
+            <button type="button" class="tabs__nav-item" data-tab-target="p3" role="tab" aria-selected="false">Video</button>
+          </div>
+          <div class="tabs__panels">
+            <div class="tabs__panel is-active" data-tab-panel="p1">すべてのコンテンツが表示されます。</div>
+            <div class="tabs__panel" data-tab-panel="p2">写真コンテンツのみが表示されます。</div>
+            <div class="tabs__panel" data-tab-panel="p3">動画コンテンツのみが表示されます。</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Slideshow ｜ スライドショー</h2>
+
+    <div class="demo-grid">
+
+      <div class="demo-block">
+        <p class="demo-block__label">フェード切り替え</p>
+        <div class="slideshow slideshow--fade" data-slideshow>
+          <div class="slideshow__viewport">
+            <div class="slideshow__track">
+              <div class="slideshow__slide is-active">Slide 1</div>
+              <div class="slideshow__slide">Slide 2</div>
+              <div class="slideshow__slide">Slide 3</div>
+            </div>
+            <button type="button" class="slideshow__arrow slideshow__arrow--prev" data-slide-prev aria-label="前のスライド">&lsaquo;</button>
+            <button type="button" class="slideshow__arrow slideshow__arrow--next" data-slide-next aria-label="次のスライド">&rsaquo;</button>
+          </div>
+          <div class="slideshow__dots">
+            <button type="button" class="slideshow__dot is-active" aria-label="1枚目"></button>
+            <button type="button" class="slideshow__dot" aria-label="2枚目"></button>
+            <button type="button" class="slideshow__dot" aria-label="3枚目"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-block">
+        <p class="demo-block__label">スライド移動＋ドット</p>
+        <div class="slideshow slideshow--slide" data-slideshow>
+          <div class="slideshow__viewport">
+            <div class="slideshow__track">
+              <div class="slideshow__slide is-active">Slide 1</div>
+              <div class="slideshow__slide">Slide 2</div>
+              <div class="slideshow__slide">Slide 3</div>
+            </div>
+            <button type="button" class="slideshow__arrow slideshow__arrow--prev" data-slide-prev aria-label="前のスライド">&lsaquo;</button>
+            <button type="button" class="slideshow__arrow slideshow__arrow--next" data-slide-next aria-label="次のスライド">&rsaquo;</button>
+          </div>
+          <div class="slideshow__dots">
+            <button type="button" class="slideshow__dot is-active" aria-label="1枚目"></button>
+            <button type="button" class="slideshow__dot" aria-label="2枚目"></button>
+            <button type="button" class="slideshow__dot" aria-label="3枚目"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Accordion ｜ アコーディオン</h2>
+
+    <div class="demo-grid">
+
+      <div class="demo-block">
+        <p class="demo-block__label">シンプル開閉（矢印回転）</p>
+        <div class="accordion accordion--chevron" data-accordion>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span class="accordion__title">配送にはどのくらい時間がかかりますか？</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <div class="accordion__panel-inner">通常、ご注文から2〜3営業日でお届けします。</div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span class="accordion__title">返品は可能ですか？</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <div class="accordion__panel-inner">商品到着後7日以内であれば返品を承っております。</div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span class="accordion__title">支払い方法は何がありますか？</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <div class="accordion__panel-inner">クレジットカード、銀行振込、代金引換に対応しています。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-block">
+        <p class="demo-block__label">プラス/マイナスアイコン</p>
+        <div class="accordion accordion--icon" data-accordion>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span class="accordion__title">サイズ交換はできますか？</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <div class="accordion__panel-inner">未使用品であればサイズ交換が可能です。</div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span class="accordion__title">海外発送に対応していますか？</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <div class="accordion__panel-inner">一部の国と地域を除き、海外発送に対応しています。</div>
+            </div>
+          </div>
+          <div class="accordion__item">
+            <button type="button" class="accordion__header" aria-expanded="false">
+              <span class="accordion__title">ラッピングはお願いできますか？</span>
+              <span class="accordion__icon" aria-hidden="true"></span>
+            </button>
+            <div class="accordion__panel">
+              <div class="accordion__panel-inner">ご注文時にラッピングをご選択いただけます。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Modal ｜ モーダル</h2>
+
+    <div class="demo-grid">
+
+      <div class="demo-block">
+        <p class="demo-block__label">フェード＋スケール</p>
+        <button type="button" class="btn" data-panel-open="modal-scale">モーダルを開く</button>
+        <div class="modal-overlay" data-panel="modal-scale">
+          <div class="modal modal--scale">
+            <button type="button" class="modal__close" data-panel-close aria-label="閉じる">&times;</button>
+            <h3 class="modal__title">確認</h3>
+            <p class="modal__body">この操作を実行してよろしいですか？</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-block">
+        <p class="demo-block__label">下からスライドイン</p>
+        <button type="button" class="btn" data-panel-open="modal-slideup">モーダルを開く</button>
+        <div class="modal-overlay" data-panel="modal-slideup">
+          <div class="modal modal--slide-up">
+            <button type="button" class="modal__close" data-panel-close aria-label="閉じる">&times;</button>
+            <h3 class="modal__title">お知らせ</h3>
+            <p class="modal__body">キャンペーンは本日23:59に終了します。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Drawer ｜ ドロワーメニュー</h2>
+
+    <div class="demo-grid">
+
+      <div class="demo-block">
+        <p class="demo-block__label">右からスライドイン（オフキャンバスメニュー）</p>
+        <button type="button" class="btn" data-panel-open="drawer-right">メニューを開く</button>
+        <div class="modal-overlay" data-panel="drawer-right">
+          <nav class="drawer drawer--right">
+            <button type="button" class="drawer__close" data-panel-close aria-label="閉じる">&times;</button>
+            <ul class="drawer__list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Service</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Dropdown ｜ ドロップダウンメニュー</h2>
+
+    <div class="demo-grid">
+
+      <div class="demo-block">
+        <p class="demo-block__label">クリックで展開</p>
+        <div class="dropdown" data-dropdown>
+          <button type="button" class="dropdown__toggle" aria-haspopup="true" aria-expanded="false">
+            並び替え
+            <span class="dropdown__caret" aria-hidden="true">&#9662;</span>
+          </button>
+          <ul class="dropdown__menu">
+            <li class="dropdown__item"><a href="#">新着順</a></li>
+            <li class="dropdown__item"><a href="#">価格が安い順</a></li>
+            <li class="dropdown__item"><a href="#">価格が高い順</a></li>
+            <li class="dropdown__item"><a href="#">人気順</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
