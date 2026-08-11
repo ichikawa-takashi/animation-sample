@@ -1089,7 +1089,8 @@ a {
 
 .lp-section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding-top: 96px;
   padding-bottom: 96px;
   padding-left: 24px;
@@ -1414,6 +1415,7 @@ a {
 
 .scrollzoom {
   position: relative;
+  width: 100%;
   height: 220vh;
   margin-top: 48px;
 }
@@ -1479,6 +1481,7 @@ a {
 
 .hscroll {
   position: relative;
+  width: 100%;
   height: 260vh;
   margin-top: 48px;
 }
