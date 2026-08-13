@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AOS アニメーション サンプル集</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="page-header aos-intro">
+  <h1 class="page-header__title">AOS Animation Samples</h1>
+  <p class="page-header__lead">AOS（Animate On Scroll）ライブラリで実装できるスクロール連動アニメーションのサンプル集です。要素に <code>data-aos</code> 属性を付けるだけで動きが実装できます。下にスクロールすると各カードが動き出し、上にスクロールし直すと何度でも再生されます。</p>
+  <p class="aos-intro__hint">Scroll ↓</p>
+</header>
+
+<main class="page-main">
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Fade ｜ フェード</h2>
+    <p class="sample-section__note">最も基本のアニメーションです。<code>data-aos</code> に効果名を指定するだけで、透明度0の状態から1へフェードインします。</p>
+
+    <ul class="sample-grid">
+      <li class="sample-card">
+        <p class="sample-card__label">fade ｜ そのままフェード</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade">Fade</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">fade-up ｜ 下からフェードイン</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade-up">Fade Up</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">fade-down ｜ 上からフェードイン</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade-down">Fade Down</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">fade-left ｜ 左からフェードイン</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade-left">Fade Left</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">fade-right ｜ 右からフェードイン</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade-right">Fade Right</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Slide ｜ スライド（スクロール連動）</h2>
+    <p class="sample-section__note">fade系と異なり透明度は変化させず、位置の移動だけでスクロールに連動して出現します。</p>
+
+    <ul class="sample-grid">
+      <li class="sample-card">
+        <p class="sample-card__label">slide-up ｜ 下からスライド</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="slide-up">Slide Up</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">slide-down ｜ 上からスライド</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="slide-down">Slide Down</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">slide-left ｜ 左からスライド</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="slide-left">Slide Left</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">slide-right ｜ 右からスライド</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="slide-right">Slide Right</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Zoom ｜ ズーム</h2>
+    <p class="sample-section__note">拡大・縮小を伴うフェードインです。フェード方向と拡大方向を組み合わせることもできます。</p>
+
+    <ul class="sample-grid">
+      <li class="sample-card">
+        <p class="sample-card__label">zoom-in ｜ 縮小状態から拡大</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="zoom-in">Zoom In</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">zoom-out ｜ 拡大状態から縮小</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="zoom-out">Zoom Out</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">zoom-in-up ｜ 縮小＋下から出現</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="zoom-in-up">Zoom In Up</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">zoom-in-down ｜ 縮小＋上から出現</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="zoom-in-down">Zoom In Down</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">Flip ｜ フリップ</h2>
+    <p class="sample-section__note">奥行き方向に回転しながら出現する、少し立体的な動きです。</p>
+
+    <ul class="sample-grid">
+      <li class="sample-card">
+        <p class="sample-card__label">flip-left ｜ 左方向へ回転</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="flip-left">Flip Left</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">flip-right ｜ 右方向へ回転</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="flip-right">Flip Right</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">flip-up ｜ 上方向へ回転</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="flip-up">Flip Up</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">応用 ｜ Duration・Easingの調整</h2>
+    <p class="sample-section__note">同じ <code>fade-up</code> でも、<code>data-aos-duration</code>（再生時間）と <code>data-aos-easing</code>（速度変化のカーブ）を変えるだけで印象が大きく変わります。</p>
+
+    <ul class="sample-grid">
+      <li class="sample-card">
+        <p class="sample-card__label">duration: 300ms / ease-out（キビキビ）</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade-up" data-aos-duration="300" data-aos-easing="ease-out">300ms</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">duration: 1200ms / ease-in-out（ゆったり）</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-in-out">1200ms</div>
+        </div>
+      </li>
+      <li class="sample-card">
+        <p class="sample-card__label">duration: 800ms / ease-out-back（少し跳ねる）</p>
+        <div class="sample-card__stage">
+          <div class="aos-tile" data-aos="fade-up" data-aos-duration="800" data-aos-easing="ease-out-back">800ms</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sample-section">
+    <h2 class="sample-section__title">応用 ｜ 3枚のカードを時間差で出現させる</h2>
+    <p class="sample-section__note">3枚とも <code>data-aos="zoom-in"</code> は同じですが、<code>data-aos-delay</code> を 0ms・150ms・300ms とずらして指定しています。同じタイミングで画面に入ってきても、少し時間差をつけて順番に浮かび上がって見えます。</p>
+
+    <div class="lp-features">
+      <div class="lp-feature" data-aos="zoom-in" data-aos-delay="0">
+        <span class="lp-feature__icon">01</span>
+        <h3 class="lp-feature__title">delay: 0ms</h3>
+        <p class="lp-feature__text">1枚目のカードです。画面内に入るとすぐに動き出します。</p>
+      </div>
+      <div class="lp-feature" data-aos="zoom-in" data-aos-delay="150">
+        <span class="lp-feature__icon">02</span>
+        <h3 class="lp-feature__title">delay: 150ms</h3>
+        <p class="lp-feature__text">1枚目より0.15秒遅れて動き出します。</p>
+      </div>
+      <div class="lp-feature" data-aos="zoom-in" data-aos-delay="300">
+        <span class="lp-feature__icon">03</span>
+        <h3 class="lp-feature__title">delay: 300ms</h3>
+        <p class="lp-feature__text">さらに0.15秒遅れて、合計0.3秒後に動き出します。3枚が連続して出現するのがポイントです。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-cubic',
+    offset: 60,
+    once: false,
+    mirror: true
+  });
+</script>
+</body>
+</html>
